@@ -1,0 +1,56 @@
+body {
+  background-color: #939098;
+  height: 100vh;
+}
+
+#root {
+  height: 100vh;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  height: 100%;
+  width: 100%;
+}
+
+#elements {
+  display: flex;
+  flex-direction: column;
+  background-color: #d2c5b1;
+  height: 85vh;
+  width: 80%;
+  margin: 0 0 45px 0;
+  border-radius: 5px;
+  justify-content: space-evenly;
+  gap: 20px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+#elements::-webkit-scrollbar {
+  background: none;
+  width: 12px;
+}
+
+#elements::-webkit-scrollbar-thumb {
+  background-color: #50422c;
+  border-radius: 10px;
+}
+
+#prodCards {
+  height: 100%;
+}
+
+/*.prodCard {*/
+/*  background-color: #867e72;*/
+/*  width: 200px;*/
+/*  height: 300px;*/
+/*  border-radius: 5px;*/
+/*}*/
+
+.primary {
+  width: 100px;
+  height: 70px;
+}
