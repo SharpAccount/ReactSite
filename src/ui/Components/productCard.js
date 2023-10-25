@@ -1,12 +1,19 @@
 import '../App/App.js';
 import axios from "axios";
-//import useState from "react";
-async function productCards() {
-    const mainUrl = "https://fakestoreapi.com/products";
+import {useEffect, useState} from "react";
 
-    const products =  await axios.get(mainUrl);
+export default function ProductCards() {
+    const [productCards, addProd] = useState([]);
 
-    return (products.data.map((product) => (
+    useEffect(() => {
+        const getAndAddProduct = async () => {
+            const prodsResponses =  await axios.get("https://fakestoreapi.com/products");
+            return addProd(prodsResponses.data);
+        }
+        getAndAddProduct();
+    }, []);
+
+    const prodCards = ( productCards.map((product) => (
         <div key = {`element${product.id}`}>
             <div><img src = {product.image} alt = ""></img></div>
             <div>
@@ -30,8 +37,8 @@ async function productCards() {
                     </div>
                 </div>
             </div>
-        </div>
-    )) )
-}
+        </div>)));
+    console.log(prodCards);
 
-export default productCards;
+    return <div>{prodCards}</div>;
+}
