@@ -1,13 +1,12 @@
-import './App.js';
+import '../App/App.js';
 import axios from "axios";
-// import useState from "react";
-
-const productCards = async () => {
+//import useState from "react";
+async function productCards() {
     const mainUrl = "https://fakestoreapi.com/products";
 
     const products =  await axios.get(mainUrl);
 
-    products.data.map((product) => (
+    return (products.data.map((product) => (
         <div key = {`element${product.id}`}>
             <div><img src = {product.image} alt = ""></img></div>
             <div>
@@ -32,5 +31,7 @@ const productCards = async () => {
                 </div>
             </div>
         </div>
-    ))
+    )) )
 }
+
+export default productCards;

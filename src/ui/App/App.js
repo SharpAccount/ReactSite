@@ -1,17 +1,8 @@
 import './App.css';
-
-
-
+import MainPage from '../Pages/MainPage.js';
 function App() {
   return (
-      <div className = "wrapper">
-        <div id = "elements">
-            <div id = "prodCards">
-                {
-                }
-            </div>
-        </div>
-      </div>
+      <MainPage/>
   );
 }
 
