@@ -1,4 +1,3 @@
-import '../App/App.js';
 import axios from "axios";
 import {useEffect, useState} from "react";
 
@@ -11,34 +10,32 @@ export default function ProductCards() {
             return addProd(prodsResponses.data);
         }
         getAndAddProduct();
-    }, []);
+    });
 
     const prodCards = ( productCards.map((product) => (
-        <div key = {`element${product.id}`}>
-            <div><img src = {product.image} alt = ""></img></div>
-            <div>
-                <h2 key = {product.title}>{product.title}</h2>
-                <p key = {product.description}>{product.description}</p>
+        <div className="prodCard" key = {`element${product.id}`}>
+            <div className="prodImgFrame"><img className="prodImg" src = {product.image} alt = ""></img></div>
+            <div className = "prodTextBlock">
+                <h2 className = "prodTextInfo" key = {product.title}>{product.title}</h2>
+                <p className = "prodTextInfo" key = {product.description}>{product.description}</p>
                 <hr></hr>
                 <div key={`infoBlock${product.id}`}>
-                    <div key = {`rating${product.id}`}>
-                        <p>rating</p>
-                        <p>{product.rating.rate}</p>
-                        <p>of</p>
-                        <p>{product.rating.count}</p>
+                    <div className="rateAndCat">
+                        <div className = "prodInfoBlock" key = {`rating${product.id}`}>
+                            <p>rating:</p>
+                            <p>{product.rating.rate}</p>
+                        </div>
+                        <div className = "prodInfoBlock" key = {`category${product.category}`}>
+                            <p>{product.category}</p>
+                        </div>
                     </div>
-                    <div key = {`category${product.category}`}>
-                        <p>category</p>
-                        <p>{product.category}</p>
-                    </div>
-                    <div key = {`price${product.price}`}>
+                    <div className = "prodInfoBlock" key = {`price${product.price}`}>
                         <p>$</p>
                         <p>{product.price}</p>
                     </div>
                 </div>
             </div>
         </div>)));
-    console.log(prodCards);
 
-    return <div>{prodCards}</div>;
+    return <div id = "prodCards">{prodCards}</div>;
 }

@@ -1,0 +1,16 @@
+body {
+    background-color: #5f417c;
+}
+.prodCard {
+    background-color: #ffffff;
+}
+#elements {
+    background-color: #bdbdbd;
+}
+#elements::-webkit-scrollbar-thumb {
+    background-color: #8d8d8d;
+}
+.prodImgFrame {
+    background-color: #ffffff;
+    border-radius: 5px;
+}
