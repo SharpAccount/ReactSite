@@ -2,15 +2,30 @@ body {
   height: 100vh;
 }
 
+#root {
+  height: 100vh;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
 .prodCard {
   display: flex;
   flex-direction: column;
   min-width: 303px;
   width: 24%;
+  box-shadow: 0 0 5px #808080;
 }
 
 .prodImgFrame {
   height: 200px;
+  padding-top: 7px;
 }
 
 .prodImg {
@@ -19,35 +34,47 @@ body {
   height: 100%;
 }
 
+.prodTextBlock {
+  padding: 0 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+
 .prodInfoBlock {
   display: flex;
   flex-direction: row;
+  margin: -2px 0;
+}
+
+.stats {
+}
+
+.buyButton {
+  width: 45px;
 }
 
 .rateAndCat {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  margin: -5px 0;
 }
 
-.prodTextInfo {
+.prodTitle {
+  -webkit-box-orient: vertical;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+}
+
+.prodDescription {
   -webkit-box-orient: vertical;
-}
-
-
-#root {
-  height: 100vh;
-}
-
-.wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: end;
-  height: 100%;
-  width: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
 }
 
 #elements {

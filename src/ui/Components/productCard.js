@@ -1,5 +1,6 @@
 import axios from "axios";
 import {useEffect, useState} from "react";
+import BuyButton from '../kits/buyButton.js';
 
 export default function ProductCards() {
     const [productCards, addProd] = useState([]);
@@ -16,10 +17,11 @@ export default function ProductCards() {
         <div className="prodCard" key = {`element${product.id}`}>
             <div className="prodImgFrame"><img className="prodImg" src = {product.image} alt = ""></img></div>
             <div className = "prodTextBlock">
-                <h2 className = "prodTextInfo" key = {product.title}>{product.title}</h2>
-                <p className = "prodTextInfo" key = {product.description}>{product.description}</p>
-                <hr></hr>
-                <div key={`infoBlock${product.id}`}>
+                <div className = "descr">
+                    <h2 className = "prodTitle" key = {product.title}>{product.title}</h2>
+                    <p className = "prodDescription" key = {product.description}>{product.description}</p>
+                </div>
+                <div className="stats" key={`infoBlock${product.id}`}>
                     <div className="rateAndCat">
                         <div className = "prodInfoBlock" key = {`rating${product.id}`}>
                             <p>rating:</p>
@@ -33,9 +35,14 @@ export default function ProductCards() {
                         <p>$</p>
                         <p>{product.price}</p>
                     </div>
+                    <div className = "prodInfoBlock" key = {`buyButtton${product.id}`}>
+                        <BuyButton/>
+                    </div>
                 </div>
             </div>
         </div>)));
 
-    return <div id = "prodCards">{prodCards}</div>;
+    return (<div id = "elements">
+                <div id = "prodCards">{prodCards}</div>
+            </div>);
 }

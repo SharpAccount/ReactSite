@@ -1,11 +1,9 @@
 import ProductCards from "../Components/productCard.js";
 
-
 export default function MainPage() {
     return (
     <div className = "wrapper">
-        <div id = "elements">
-                <ProductCards/>
-        </div>
+        <header><h1>PRODUCTS</h1></header>
+        <ProductCards/>
     </div> )
 }
