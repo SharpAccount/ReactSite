@@ -23,20 +23,22 @@ export default function ProductCards() {
                 </div>
                 <div className="stats" key={`infoBlock${product.id}`}>
                     <div className="rateAndCat">
-                        <div className = "prodInfoBlock" key = {`rating${product.id}`}>
+                        <div className = "prodInfoElement" key = {`rating${product.id}`}>
                             <p>rating:</p>
                             <p>{product.rating.rate}</p>
                         </div>
-                        <div className = "prodInfoBlock" key = {`category${product.category}`}>
+                        <div className = "prodInfoElement" key = {`category${product.category}`}>
                             <p>{product.category}</p>
                         </div>
                     </div>
-                    <div className = "prodInfoBlock" key = {`price${product.price}`}>
-                        <p>$</p>
-                        <p>{product.price}</p>
-                    </div>
-                    <div className = "prodInfoBlock" key = {`buyButtton${product.id}`}>
-                        <BuyButton/>
+                    <div className = "priceAndButton">
+                        <div className = "prodInfoElement" key = {`price${product.price}`}>
+                            <p>$</p>
+                            <p>{product.price}</p>
+                        </div>
+                        <div className = "prodInfoElement" key = {`buyButtton${product.id}`}>
+                            <BuyButton/>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,9 @@
 body {
     background-color: #5f417c;
 }
+header {
+    color: white;
+}
 .prodCard {
     background-color: #ffffff;
 }

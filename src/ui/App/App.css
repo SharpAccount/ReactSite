@@ -2,6 +2,11 @@ body {
   height: 100vh;
 }
 
+header {
+  font-weight: bold;
+  font-size: 60px;
+}
+
 #root {
   height: 100vh;
 }
@@ -18,13 +23,13 @@ body {
 .prodCard {
   display: flex;
   flex-direction: column;
-  min-width: 303px;
-  width: 24%;
+  min-width: 320px;
   box-shadow: 0 0 5px #808080;
 }
 
 .prodImgFrame {
-  height: 200px;
+  max-height: 235px;
+  height: 100%;
   padding-top: 7px;
 }
 
@@ -39,21 +44,19 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 100%;
 }
 
-
-
-.prodInfoBlock {
+.prodInfoElement {
   display: flex;
   flex-direction: row;
   margin: -2px 0;
 }
 
-.stats {
-}
-
 .buyButton {
-  width: 45px;
+  width: auto;
+  height: 45px;
+  cursor: pointer;
 }
 
 .rateAndCat {
@@ -63,11 +66,18 @@ body {
   margin: -5px 0;
 }
 
+.priceAndButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .prodTitle {
   -webkit-box-orient: vertical;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  height: 64px;
 }
 
 .prodDescription {
@@ -79,16 +89,15 @@ body {
 
 #elements {
   height: 85vh;
-  width: 90%;
   margin: 0 0 45px 0;
+  width: 90%;
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
 #prodCards {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 17px;
   padding: 20px 3%;
 }
@@ -105,4 +114,44 @@ body {
 .primary {
   width: 100px;
   height: 70px;
+}
+
+@media screen and (max-width: 1580px) {
+  #prodCards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 1190px) {
+  #prodCards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 793px) {
+  #prodCards {
+    grid-template-columns: 1fr;
+  }
+
+  #elements {
+    width: 100%;
+  }
+
+  .prodCard {
+    min-width: 252px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  header {
+    font-size: 50px;
+  }
+
+  #elements {
+    margin: 0;
+  }
+
+  #elements::-webkit-scrollbar {
+    width: 6px;
+  }
 }
