@@ -1,17 +1,13 @@
 import axios from "axios";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import BuyButton from '../kits/buyButton.js';
-
+import {Context} from "../../Core/Context";
 export default function ProductCards() {
-    const [productCards, addProd] = useState([]);
+    const {productCards, getProd} = useContext(Context);
 
-    useEffect(() => {
-        const getAndAddProduct = async () => {
-            const prodsResponses =  await axios.get("https://fakestoreapi.com/products");
-            return addProd(prodsResponses.data);
-        }
-        getAndAddProduct();
-    });
+    useEffect( () => {
+        getProd();
+    }, [])
 
     const prodCards = ( productCards.map((product) => (
         <div className="prodCard" key = {`element${product.id}`}>
