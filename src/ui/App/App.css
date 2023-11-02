@@ -90,14 +90,14 @@ header {
 #elements {
   height: 85vh;
   margin: 0 0 45px 0;
-  width: 90%;
+  width: 85%;
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
 #prodCards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 17px;
   padding: 20px 3%;
 }
@@ -114,12 +114,6 @@ header {
 .primary {
   width: 100px;
   height: 70px;
-}
-
-@media screen and (max-width: 1580px) {
-  #prodCards {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
 }
 
 @media screen and (max-width: 1190px) {

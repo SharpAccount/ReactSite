@@ -1,7 +1,7 @@
-import {Offcanvas} from "bootstrap/js/src/offcanvas";
-import {Button} from "react-bootstrap";
+import {Button, Offcanvas} from "react-bootstrap";
 import {useState} from "react";
-export default function SideBar() {
+
+export function OffCanvas() {
     const [show, setShow] = useState(false);
 
     const handleShow = () => setShow(true);
@@ -9,15 +9,23 @@ export default function SideBar() {
 
     return (
         <>
-            <Offcanvas>
+            <Button variant="primary" size = "lg" onClick={handleShow}>Cart</Button>{" "}
+            <Offcanvas show = {show} onHide={handleClose} backdrop='true'>
                 <Offcanvas.Header closeButton>
-                    <Offcanvas.Title></Offcanvas.Title>
+                    <Offcanvas.Title>Cart</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-
+                    some products
                 </Offcanvas.Body>
             </Offcanvas>
-            <Button onClick={handleShow}></Button>
+        </>
+    )
+}
+
+export default function SideBar() {
+    return (
+        <>
+            <OffCanvas/>
         </>
     )
 }

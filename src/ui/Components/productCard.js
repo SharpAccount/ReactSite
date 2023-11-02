@@ -1,7 +1,7 @@
-import axios from "axios";
-import {useContext, useEffect, useState} from "react";
+import {useContext, useEffect} from "react";
 import BuyButton from '../kits/buyButton.js';
 import {Context} from "../../Core/Context";
+import {Card, Col, Row} from "react-bootstrap";
 export default function ProductCards() {
     const {productCards, getProd} = useContext(Context);
 
@@ -40,7 +40,22 @@ export default function ProductCards() {
             </div>
         </div>)));
 
+
+
+
     return (<div id = "elements">
-                <div id = "prodCards">{prodCards}</div>
+        <Row>
+            { productCards.slice(0,3).map( (prod) => (
+                <Col>
+                    <Card>
+                        <Card.Img variant = "top" src ={prod.image}/>
+                        <Card.Body>
+                            <Card.Title>{prod.title}</Card.Title>
+                            <Card.Text>{prod.description}</Card.Text>
+                        </Card.Body>
+                    </Card>
+                </Col>
+            )) }
+        </Row>
             </div>);
 }
