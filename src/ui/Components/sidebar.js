@@ -9,7 +9,7 @@ export function OffCanvas() {
 
     return (
         <>
-            <Button variant="primary" size = "lg" onClick={handleShow}>Cart</Button>{" "}
+            <Button size = "lg" onClick={handleShow}>Cart</Button>{" "}
             <Offcanvas show = {show} onHide={handleClose} backdrop='true'>
                 <Offcanvas.Header closeButton>
                     <Offcanvas.Title>Cart</Offcanvas.Title>
