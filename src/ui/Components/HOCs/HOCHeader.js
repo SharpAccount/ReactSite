@@ -1,13 +1,11 @@
-import  React from "react";
+import React, {Component} from "react";
 
 function HOCHeader(Children) {
-     return function() {
-        return (
-            <>
-                <Children/>
-            </>
-        );
-    };
+     return class extends Component {
+        render() {
+            return <Children />
+        }
+     }
 }
 
 export default HOCHeader;
