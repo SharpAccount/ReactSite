@@ -1,4 +1,4 @@
-import {Button, Offcanvas} from "react-bootstrap";
+import {Offcanvas} from "react-bootstrap";
 import {useState} from "react";
 
 export function OffCanvas() {
@@ -9,7 +9,6 @@ export function OffCanvas() {
 
     return (
         <>
-            <Button size = "lg" onClick={handleShow}>Cart</Button>{" "}
             <Offcanvas show = {show} onHide={handleClose} backdrop='true'>
                 <Offcanvas.Header closeButton>
                     <Offcanvas.Title>Cart</Offcanvas.Title>

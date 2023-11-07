@@ -1,5 +1,5 @@
-import Header from "./header";
-import ProductCards from "./productCard";
+import Header from "./header/header";
+import ProductCards from "./productCard/productCard";
 import SideBar from "./sidebar";
 
 export default function Wrapper() {

@@ -1,5 +1,15 @@
+#root {
+  height: 100vh;
+}
+
 body {
   --bs-body-bg: rgb(147, 112, 219);
+}
+
+.header {
+  font-weight: bold;
+  font-size: 60px;
+  background-color: blueviolet;
 }
 
 .container {
@@ -16,7 +26,7 @@ body {
 
 .card-header  {
   --bs-card-cap-bg: rgb(255, 255, 255);
-  height: 350px;
+  height: 235px;
 }
 
 .card-img-top {
@@ -29,18 +39,7 @@ body {
 }
 
 .card-text {
-  -webkit-line-clamp: 3;
-}
-
-.abbreviated {
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  display: -webkit-box;
-}
-
-header {
-  font-weight: bold;
-  font-size: 60px;
+  -webkit-line-clamp: 2;
 }
 
 @media screen and (max-width: 1190px) {
