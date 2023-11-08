@@ -6,18 +6,8 @@ body {
   --bs-body-bg: rgb(147, 112, 219);
 }
 
-.header {
-  font-weight: bold;
-  font-size: 60px;
-  background-color: blueviolet;
-}
-
 .container {
   max-width: none !important;
-}
-
-.offcanvas {
-  --bs-offcanvas-bg: rgb(237, 239, 264) !important;
 }
 
 .card {
@@ -40,13 +30,4 @@ body {
 
 .card-text {
   -webkit-line-clamp: 2;
-}
-
-@media screen and (max-width: 1190px) {
-}
-
-@media screen and (max-width: 793px) {
-}
-
-@media screen and (max-width: 550px) {
 }

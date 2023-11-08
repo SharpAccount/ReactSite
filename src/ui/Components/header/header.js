@@ -22,7 +22,7 @@ export function Header() {
                     <Offcanvas.Title>Cart</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                    some products
+                    {/*place for products*/}
                 </Offcanvas.Body>
             </Offcanvas>
         </>
