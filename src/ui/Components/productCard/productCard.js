@@ -1,20 +1,16 @@
 import {useContext, useEffect} from "react";
-import {Context, button, AddToCartButton} from "../../../Core/Context";
-import {Card, Container} from "react-bootstrap";
+import {Context} from "../../../Core/Context";
+import {Button, Card, Container} from "react-bootstrap";
 import "./productCard.css";
-import {AddProduct} from "../../addProduct";
-//import BuyButton from "../../kits/buyButton";
+//mport BuyButton from "../../kits/buyButton";
 export default function ProductCards() {
-    const {productCards, getProd} = useContext(Context);
+    const {productCards, getProd, AddToCartButton} = useContext(Context);
 
     useEffect( () => {
         getProd();
     }, [])
 
-    const addToCartButton = useContext(button);
-
     return (
-
         <Container className="prodCards d-grid rounded-1 overflow-y-auto p-2 mt-5 gap-2 flex-grow-1">
             {productCards.map((prod) => (
                 <Card className="card">
@@ -33,7 +29,8 @@ export default function ProductCards() {
                             <Card.Text>price: ${prod.price}</Card.Text>
                         </Container>
                         {/*<BuyButton id = {prod.id} />*/}
-                        <AddToCartButton  />
+                        {/*<Button className="w-100">Add to cart</Button>*/}
+                        <AddToCartButton id = {prod.id}/>
                     </Card.Body>
                 </Card>
                 ))
