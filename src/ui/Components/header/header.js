@@ -1,9 +1,12 @@
 import {Button, Container, Navbar, Offcanvas} from "react-bootstrap";
 import "./header.css";
 import HOCHeader from "../HOCs/HOCHeader";
-import {useState} from "react";
+import {useContext, useState} from "react";
+import {Context} from "../../../Core/Context";
 
 export function Header() {
+    const {AddedToCart} = useContext(Context);
+
     const [show, setShow] = useState(false);
 
     const handleShow = () => setShow(true);
@@ -12,8 +15,8 @@ export function Header() {
         <>
             <Navbar className="w-100" bg="light">
                 <Container>
-                    <Navbar.Brand>PRODUCTS</Navbar.Brand>
-                    <Button onClick={handleShow}>Cart</Button>
+                    <Navbar.Brand className="fs-2">PRODUCTS</Navbar.Brand>
+                    <Button size="lg" onClick={handleShow}>Cart</Button>
                 </Container>
             </Navbar>
 
@@ -21,8 +24,8 @@ export function Header() {
                 <Offcanvas.Header closeButton>
                     <Offcanvas.Title>Cart</Offcanvas.Title>
                 </Offcanvas.Header>
-                <Offcanvas.Body>
-                    {/*place for products*/}
+                <Offcanvas.Body className = "overflow-y-auto gap-2">
+                    <AddedToCart />
                 </Offcanvas.Body>
             </Offcanvas>
         </>

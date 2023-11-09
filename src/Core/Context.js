@@ -1,6 +1,7 @@
 import {createContext, useContext, useState} from "react";
 import axios from "axios";
 import BuyButton from "../ui/kits/buyButton";
+import {Card, Container} from "react-bootstrap";
 
 export const Context = createContext({});
 
@@ -12,13 +13,23 @@ export const ContextWrapper = ({ children }) => {
         setProductCards(prodsResponses.data);
     }
 
-    const addToCart = (id) => {
-        console.log("You`ve just clicked " + id);
+    const cart = {
+        totalPrice: 0,
+        products: []
+    };
+
+    function AddedToCart(id) {
+        console.log(productCards[id]);
+        if (cart[id]) {
+            {/*place to add to increase count component method*/}
+        }
+        cart[id] = productCards[id];
+        {/*place to add to adding to sidebar method*/}
     }
 
     const AddToCartButton = ({ id }) => {
         return (
-                <BuyButton onClick={() => addToCart(id)}/>
+                <BuyButton onClick={() => AddedToCart(id)}/>
         )
     }
 
@@ -27,7 +38,7 @@ export const ContextWrapper = ({ children }) => {
         getProd,
         productCards,
         AddToCartButton,
-        addToCart
+        AddedToCart
     }
 
     return (

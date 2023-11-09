@@ -2,7 +2,7 @@ import {useContext, useEffect} from "react";
 import {Context} from "../../../Core/Context";
 import {Button, Card, Container} from "react-bootstrap";
 import "./productCard.css";
-//mport BuyButton from "../../kits/buyButton";
+
 export default function ProductCards() {
     const {productCards, getProd, AddToCartButton} = useContext(Context);
 
@@ -28,9 +28,7 @@ export default function ProductCards() {
                             <Card.Text>rating: {prod.rating.rate}/5</Card.Text>
                             <Card.Text>price: ${prod.price}</Card.Text>
                         </Container>
-                        {/*<BuyButton id = {prod.id} />*/}
-                        {/*<Button className="w-100">Add to cart</Button>*/}
-                        <AddToCartButton id = {prod.id}/>
+                        <AddToCartButton id = {prod.id-1}/>
                     </Card.Body>
                 </Card>
                 ))
