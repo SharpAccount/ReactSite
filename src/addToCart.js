@@ -16,6 +16,10 @@ export function AddToCart(id, price) {
     cart.products[id] = product;
     cart.totalPrice += Math.round(product.price * 100) / 100;
 
+    //place under if else operators? which
+    //will check, is this product in sidebar
+    //and if yes, this method increase amount
+    //component of this product
     return (
         <Card className="card">
             <Card.Header>
