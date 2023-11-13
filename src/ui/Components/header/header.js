@@ -5,7 +5,7 @@ import {useContext, useState} from "react";
 import {Context} from "../../../Core/Context";
 
 export function Header() {
-    const {AddedToCart, cartButton} = useContext(Context);
+    const {AddedToCart, CartButton} = useContext(Context);
 
     const [show, setShow] = useState(false);
 
@@ -16,7 +16,7 @@ export function Header() {
             <Navbar className="w-100" bg="light">
                 <Container>
                     <Navbar.Brand className="fs-2">PRODUCTS</Navbar.Brand>
-                    <Button size="lg" onClick={handleShow}>Cart</Button>
+                    <CartButton />
                 </Container>
             </Navbar>
 

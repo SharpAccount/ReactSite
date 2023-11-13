@@ -41,12 +41,18 @@ export const ContextWrapper = ({ children }) => {
     console.log(cart);
     //
 
+    function CartButton(){
+        return (
+            <Button size="lg">Cart</Button>
+        )
+    }
 
     const values = {
         getProd,
         productCards,
         AddToCartButton,
         AddedToCart,
+        CartButton
     }
 
     return (
