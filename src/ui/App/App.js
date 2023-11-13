@@ -1,11 +1,17 @@
 import './App.css';
-import MainPage from '../Pages/MainPage.js';
+import {URLs} from "../../constants/paths";
 import { ContextWrapper } from "../../Core/Context";
-import {BrowserRouter, Switch} from "react-router-dom";
+import {BrowserRouter, Switch, Route} from "react-router-dom";
 function App() {
   return (
       <ContextWrapper>
-          <MainPage/>
+          <BrowserRouter>
+              <Switch>
+                  {URLs.map((el) => (
+                      <Route exact = "" path = {el.path} component = {el.page}/>
+                  ))}
+              </Switch>
+          </BrowserRouter>
       </ContextWrapper>
   );
 }

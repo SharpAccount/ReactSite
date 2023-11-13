@@ -6,18 +6,14 @@ import {Context} from "../../../Core/Context";
 import {Link} from "react-router-dom";
 
 export function Header() {
-    const {AddedToCart, CartButton} = useContext(Context);
+    const {CartButton} = useContext(Context);
 
-    const [show, setShow] = useState(false);
-
-    const handleShow = () => setShow(true);
-    const handleClose = () =>  setShow(false);
     return (
         <>
             <Navbar className="w-100" bg="light">
                 <Container>
                     <Navbar.Brand className="fs-2">PRODUCTS</Navbar.Brand>
-                    <Link to ="/"><CartButton /></Link>
+                    <Link to ="/Products"><CartButton /></Link>
                 </Container>
             </Navbar>
         </>
