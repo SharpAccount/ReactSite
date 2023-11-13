@@ -1,3 +1,7 @@
+h5 {
+    line-height: 1.3;
+}
+
 .prodCards {
     background-color: lightgrey;
     grid-template-columns: repeat(4, 1fr);

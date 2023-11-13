@@ -1,40 +1,47 @@
-import {Card, Container} from "react-bootstrap";
+import {Card} from "react-bootstrap";
+import {Context} from "./Core/Context";
+import SetAmountButtons from "./ui/kits/changeAmountButton";
+import {useContext} from "react";
 
-export const cart = {
-    totalPrice: 0,
-    products: []
-};
+const {card, addCard, cart} = useContext(Context);
 
-export function AddToCart(id, price) {
+export function AddProduct(id) {
 
+    if (!(cart.products[id])) {
+        addCard(addProduct(id));
+    } else {
+        cart.products[id].amount += 1;
+    }
+
+    cart.totalPrice += Math.round(cart.products[id].price * 100) / 100;
+
+    return (
+        <>{card}</>
+    )
+}
+
+function addProduct(id) {
     const product = {
         id: id,
-        price: price,
+        price: cart.products[id].price,
         amount: 1
     }
 
-    cart.products[id] = product;
-    cart.totalPrice += Math.round(product.price * 100) / 100;
-
-    //place under if else operators? which
-    //will check, is this product in sidebar
-    //and if yes, this method increase amount
-    //component of this product
+    if (!(product[id])) {
+        cart.products[id] = product;
+    }
     return (
         <Card className="card">
             <Card.Header>
-                <Card.Img variant="top" className = "" src={product.image}/>
+                <Card.Img variant="top" className = "" src={cart.products[id].image}/>
             </Card.Header>
             <Card.Body>
                 <Card.Title className="abbreviated overflow-hidden">
-                    {product.title}
+                    {cart.products[id].title}
                 </Card.Title>
-                <Card.Text>price: ${product.price}</Card.Text>
-                {/*place for increase/decrease amount*/}
+                <Card.Text>price: ${cart.products[id].price}</Card.Text>
+                <SetAmountButtons />
             </Card.Body>
         </Card>
     )
-}
-function increaseTotalPrice(productPrice) {
-    cart.totalPrice += Math.round(productPrice * 100) / 100;
 }

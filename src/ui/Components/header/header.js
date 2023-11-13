@@ -5,7 +5,7 @@ import {useContext, useState} from "react";
 import {Context} from "../../../Core/Context";
 
 export function Header() {
-    const {AddedToCart} = useContext(Context);
+    const {AddedToCart, cartButton} = useContext(Context);
 
     const [show, setShow] = useState(false);
 
@@ -25,7 +25,7 @@ export function Header() {
                     <Offcanvas.Title>Cart</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body className = "overflow-y-auto gap-2">
-                    <AddedToCart />
+                    {/*<AddedToCart/>*/}
                 </Offcanvas.Body>
             </Offcanvas>
         </>

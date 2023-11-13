@@ -1,6 +1,6 @@
 import {useContext, useEffect} from "react";
 import {Context} from "../../../Core/Context";
-import {Button, Card, Container} from "react-bootstrap";
+import {Card, Container} from "react-bootstrap";
 import "./productCard.css";
 
 export default function ProductCards() {

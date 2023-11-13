@@ -1,11 +1,19 @@
-import {createContext, useContext, useState} from "react";
+import {createContext, useState} from "react";
 import axios from "axios";
 import BuyButton from "../ui/kits/buyButton";
+import {Button} from "react-bootstrap";
 
 export const Context = createContext({});
 
 export const ContextWrapper = ({ children }) => {
     const [productCards, setProductCards] = useState([]);
+
+    const {card, setCartPosition} = useState([]);
+
+    const cart = {
+        totalPrice: 0,
+        products: []
+    };
 
     const getProd = async () => {
         const prodsResponses =  await axios.get("https://fakestoreapi.com/products");
@@ -27,11 +35,18 @@ export const ContextWrapper = ({ children }) => {
         )
     }
 
+    //
+    console.log(card);
+    console.log(setCartPosition);
+    console.log(cart);
+    //
+
+
     const values = {
         getProd,
         productCards,
         AddToCartButton,
-        // AddedToCart
+        AddedToCart,
     }
 
     return (
