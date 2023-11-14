@@ -15,7 +15,7 @@ export default function ProductCards() {
             {productCards.map((prod) => (
                 <Card className="card">
                     <Card.Header>
-                        <Card.Img variant="top" className = "" src={prod.image}/>
+                        <Card.Img variant="top" className = "" src={prod.image}  alt =""/>
                     </Card.Header>
                     <Card.Body>
                         <Card.Title className="abbreviated overflow-hidden">

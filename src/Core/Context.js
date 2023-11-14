@@ -1,7 +1,7 @@
 import {createContext, useState} from "react";
 import axios from "axios";
 import BuyButton from "../ui/kits/buyButton";
-import {Button} from "react-bootstrap";
+import {NavbarBrand} from "react-bootstrap";
 
 export const Context = createContext({});
 
@@ -10,40 +10,46 @@ export const ContextWrapper = ({ children }) => {
 
     const {card, setCartPosition} = useState([]);
 
-    const cart = {
-        totalPrice: 0,
-        products: []
-    };
+    const renderCart = [];
 
     const getProd = async () => {
         const prodsResponses =  await axios.get("https://fakestoreapi.com/products");
         setProductCards(prodsResponses.data);
     }
 
-    function AddedToCart(id) {
-        console.log(productCards[id]);
-        if (cart[id]) {
-            {/*place to add to increase count component method*/}
+    //
+    const cart = {
+        totalPrice: 0,
+        products: []
+    };
+    function addProduct(id) {
+        const product = {
+            id: id,
+            price: cart.products[id].price,
+            amount: 1,
         }
-        cart[id] = productCards[id];
-        {/*place to add to adding to sidebar method*/}
+        cart.products[id] = product;
+
+        cart.totalPrice += Math.round(product.price * 100) / 100;
+
+        if (!(cart.products[id])) {
+            renderCart.append(cart.products[id])
+        } else {
+            cart.products[id].amount += 1;
+        }
     }
+    //
 
     const AddToCartButton = ({ id }) => {
         return (
-                <BuyButton onClick={() => AddedToCart(id)}/>
+                <BuyButton onClick={() => addProduct(id)}/>
         )
     }
 
-    //
-    console.log(card);
-    console.log(setCartPosition);
-    console.log(cart);
-    //
 
     function CartButton(){
         return (
-            <Button size="lg">Cart</Button>
+            <NavbarBrand className="fs-2" size="lg">Cart</NavbarBrand>
         )
     }
 
@@ -51,7 +57,7 @@ export const ContextWrapper = ({ children }) => {
         getProd,
         productCards,
         AddToCartButton,
-        AddedToCart,
+        renderCart,
         CartButton
     }
 

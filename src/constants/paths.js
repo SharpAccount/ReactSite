@@ -3,11 +3,11 @@ import CartPage from "../ui/Pages/CartPage";
 
 export const URLs = [
     {
-        path: "/", // page path
-        page: MainPage //page component
+        path: "/",
+        page: MainPage
     },
     {
-        path: "/Products", // page path
-        page: CartPage //page component
+        path: "/Products",
+        page: CartPage
     }
 ]
