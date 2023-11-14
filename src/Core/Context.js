@@ -17,28 +17,25 @@ export const ContextWrapper = ({ children }) => {
         setProductCards(prodsResponses.data);
     }
 
-    //
     const cart = {
         totalPrice: 0,
         products: []
     };
+
     function addProduct(id) {
-        const product = {
-            id: id,
-            price: cart.products[id].price,
-            amount: 1,
-        }
-        cart.products[id] = product;
-
-        cart.totalPrice += Math.round(product.price * 100) / 100;
-
-        if (!(cart.products[id])) {
-            renderCart.append(cart.products[id])
-        } else {
+        if (cart.products[id]) {
             cart.products[id].amount += 1;
+        } else {
+            const product = {
+                id: id,
+                price: productCards[id].price,
+                amount: 1,
+            }
+            cart.products[id] = product;
         }
+        cart.totalPrice = Math.round((cart.totalPrice + cart.products[id].price) * 100) / 100;
+        return cart.products
     }
-    //
 
     const AddToCartButton = ({ id }) => {
         return (
