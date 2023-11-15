@@ -5,7 +5,13 @@ import {NavbarBrand} from "react-bootstrap";
 
 export const Context = createContext({});
 
+const cart = {
+    totalPrice: 0,
+    products: []
+};
+
 export const ContextWrapper = ({ children }) => {
+
     const [productCards, setProductCards] = useState([]);
 
     const {card, setCartPosition} = useState([]);
@@ -17,10 +23,7 @@ export const ContextWrapper = ({ children }) => {
         setProductCards(prodsResponses.data);
     }
 
-    const cart = {
-        totalPrice: 0,
-        products: []
-    };
+
 
     function addProduct(id) {
         if (cart.products[id]) {
@@ -28,6 +31,9 @@ export const ContextWrapper = ({ children }) => {
         } else {
             const product = {
                 id: id,
+                title: productCards[id].title,
+                description: productCards[id].description,
+                img: productCards[id].image,
                 price: productCards[id].price,
                 amount: 1,
             }
@@ -54,7 +60,7 @@ export const ContextWrapper = ({ children }) => {
         getProd,
         productCards,
         AddToCartButton,
-        renderCart,
+        cart,
         CartButton
     }
 
