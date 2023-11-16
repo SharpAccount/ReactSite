@@ -5,9 +5,7 @@ import SetAmountButtons from "../kits/changeAmountButton";
 import "./cart.css";
 
 const Cart = () => {
-    const {cart} = useContext(Context)
-
-    //const [list, setList] = React.useState(initialList);
+    const {cart, setCart} = useContext(Context);
 
     if (cart.products.length === 0) {
         return (
@@ -40,6 +38,7 @@ const Cart = () => {
     }
 }
 
+//const [list, setList] = React.useState(initialList);
 //update usestate func
 
 export default Cart

@@ -11,7 +11,7 @@ export default function ProductCards() {
     }, [])
 
     return (
-        <Container className="prodCards d-grid rounded-1 overflow-y-auto p-2 mt-5 gap-2 flex-grow-1">
+        <Container className="prodCards d-grid rounded-1 overflow-y-auto p-2 my-5 gap-2 flex-grow-1">
             {productCards.map((prod) => (
                 <Card className="card">
                     <Card.Header>

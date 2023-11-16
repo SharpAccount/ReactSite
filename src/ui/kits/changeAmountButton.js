@@ -7,31 +7,44 @@ import Cart from "../cart/cart";
 
 export default function SetAmountButtons({ children }) {
 
-    const {cart} = useContext(Context)
+    const {cart, setCart} = useContext(Context)
 
-    const [amount, setAmount] = useState(1)
+    console.log(cart.products)
+    console.log(children)
+
+    const product = cart.products.find((prod) => prod.id === children);
+
+    // console.log(product)
+    // console.log(cart.products)
 
     function addProd() {
-        cart.products[children].amount += 1;
-        setAmount(amount + 1);
+        cart.totalPrice = Math.round((cart.totalPrice + product.price) * 100) / 100;
+        product.amount += 1;
+        setCart({...cart});
         console.log("added");
     }
 
     function removeProd() {
-        if ((cart.products[children].amount - 1) === 0) {
-            delete cart.products[children]
+        console.log(product.amount)
+        cart.totalPrice = Math.round((cart.totalPrice - product.price) * 100) / 100;
+        if ((product.amount - 1) === 0) {
+            cart.products = cart.products.filter((product) => product.id !== children)
+        } else {
+            product.amount -= 1;
         }
-        cart.products[children].amount -= 1;
-        setAmount(amount - 1);
+        setCart({...cart});
+        //console.log(cart.products)
         console.log("removed");
     }
+
+    console.log(product)
 
     return (
         <Container className = "align-items-center">
             <Container className = "d-flex gap-2 align-items-center">
                 <IconMinusCircle onClick = {() => removeProd()} />
-                <p className= "fs-4">{amount}</p>
-                <IconPlusCircle onCLick = {() => addProd()}/>
+                {product && <p className= "fs-4">{product.amount}</p>}
+                <IconPlusCircle onClick = {() => addProd()}/>
             </Container>
         </Container>
     )

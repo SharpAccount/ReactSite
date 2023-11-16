@@ -5,14 +5,14 @@ import {NavbarBrand} from "react-bootstrap";
 
 export const Context = createContext({});
 
-const cart = {
-    totalPrice: 0,
-    products: []
-};
-
 export const ContextWrapper = ({ children }) => {
 
     const [productCards, setProductCards] = useState([]);
+
+    const [cart, setCart] = useState({
+        totalPrice: 0,
+        products: []
+    });
 
     const getProd = async () => {
         const prodsResponses =  await axios.get("https://fakestoreapi.com/products");
@@ -20,8 +20,10 @@ export const ContextWrapper = ({ children }) => {
     }
 
     function addProduct(id) {
-        if (cart.products[id]) {
-            cart.products[id].amount += 1;
+        const renderCart = {...cart};
+
+        if (renderCart.products[id]) {
+            renderCart.products[id].amount += 1;
         } else {
             const product = {
                 id: id,
@@ -31,10 +33,11 @@ export const ContextWrapper = ({ children }) => {
                 price: productCards[id].price,
                 amount: 1,
             }
-            cart.products[id] = product;
+            renderCart.products[id] = product;
         }
-        cart.totalPrice = Math.round((cart.totalPrice + cart.products[id].price) * 100) / 100;
-        return cart.products
+        renderCart.totalPrice = Math.round((renderCart.totalPrice + renderCart.products[id].price) * 100) / 100;
+        setCart(renderCart);
+        return renderCart.products
     }
 
     const AddToCartButton = ({ id }) => {
@@ -55,6 +58,7 @@ export const ContextWrapper = ({ children }) => {
         productCards,
         AddToCartButton,
         cart,
+        setCart,
         CartButton
     }
 
