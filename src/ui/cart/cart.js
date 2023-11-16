@@ -2,13 +2,16 @@ import {useContext} from "react";
 import {Context} from "../../Core/Context";
 import {Card, Container} from "react-bootstrap";
 import SetAmountButtons from "../kits/changeAmountButton";
+import "./cart.css";
 
-export default function Cart() {
+const Cart = () => {
     const {cart} = useContext(Context)
+
+    //const [list, setList] = React.useState(initialList);
 
     if (cart.products.length === 0) {
         return (
-            <Container className = "d-flex justify-content-center align-items-center h-100">
+            <Container className = "d-grid justify-content-center align-items-center h-85">
                 <p className = "fs-4 form-text h-50">
                     There aren`t any products yet...
                 </p>
@@ -16,7 +19,7 @@ export default function Cart() {
         )
     } else {
         return (
-            <Container className = "gap-2">
+            <Container className = "boughtProds gap-3 d-grid mt-3">
                 {cart.products.map((prod) => (
                     <Card>
                         <Card.Header className = "d-flex">
@@ -36,3 +39,7 @@ export default function Cart() {
         )
     }
 }
+
+//update usestate func
+
+export default Cart

@@ -3,32 +3,35 @@ import IconMinusCircle from "../../images/minusSign";
 import {Container} from "react-bootstrap";
 import IconPlusCircle from "../../images/plusSign";
 import {Context} from "../../Core/Context";
+import Cart from "../cart/cart";
 
 export default function SetAmountButtons({ children }) {
 
     const {cart} = useContext(Context)
 
-    const {amount, setAmount} = useState(1)
+    const [amount, setAmount] = useState(1)
 
     function addProd() {
-        cart.products[children].amount += 1
-        console.log("added")
+        cart.products[children].amount += 1;
+        setAmount(amount + 1);
+        console.log("added");
     }
 
     function removeProd() {
-        cart.products[children].amount -= 1
-        setAmount(amount - 1)
-        console.log("removed")
+        if ((cart.products[children].amount - 1) === 0) {
+            delete cart.products[children]
+        }
+        cart.products[children].amount -= 1;
+        setAmount(amount - 1);
+        console.log("removed");
     }
 
     return (
         <Container className = "align-items-center">
             <Container className = "d-flex gap-2 align-items-center">
-                <IconMinusCircle onClick = {() => (
-                    removeProd()
-                )} />
+                <IconMinusCircle onClick = {() => removeProd()} />
                 <p className= "fs-4">{amount}</p>
-                <IconPlusCircle onCLick = {() => (addProd)}/>
+                <IconPlusCircle onCLick = {() => addProd()}/>
             </Container>
         </Container>
     )

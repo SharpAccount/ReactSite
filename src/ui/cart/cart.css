@@ -4,5 +4,15 @@
 .prodImg {
     object-fit: contain;
     max-height: 100%;
-    width: 25%;
+    width: 25% !important;
+}
+
+.boughtProds::-webkit-scrollbar {
+    background: none;
+    width: 8px;
+}
+
+.boughtProds::-webkit-scrollbar-thumb {
+    background-color: rgb(87, 68, 134);
+    border-radius: 4px;
 }

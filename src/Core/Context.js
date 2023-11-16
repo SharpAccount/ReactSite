@@ -14,16 +14,10 @@ export const ContextWrapper = ({ children }) => {
 
     const [productCards, setProductCards] = useState([]);
 
-    const {card, setCartPosition} = useState([]);
-
-    const renderCart = [];
-
     const getProd = async () => {
         const prodsResponses =  await axios.get("https://fakestoreapi.com/products");
         setProductCards(prodsResponses.data);
     }
-
-
 
     function addProduct(id) {
         if (cart.products[id]) {
