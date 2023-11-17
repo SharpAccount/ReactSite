@@ -1,0 +1,37 @@
+.prodImgFrame {
+    width: 218px;
+    height: 218px;
+}
+
+.prodImg {
+    object-fit: contain;
+    width: 100%;
+}
+
+@media screen and (max-width: 768px)  {
+    .prodDescr {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow-y: hidden;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .prodTitle {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow-y: hidden;
+    }
+    .prodDescr {
+        -webkit-line-clamp: 2;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .prodHeader {
+        flex-direction: column;
+        height: 100%;
+    }
+}
