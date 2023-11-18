@@ -1,6 +1,6 @@
 import {Container, Navbar} from "react-bootstrap";
 import "./header.css";
-import HOCHeader from "../HOCs/HOCHeader";
+import HOCHeader from "../HOCHeader";
 import {useContext} from "react";
 import {Context} from "../../../Core/Context";
 import {Link} from "react-router-dom";

@@ -31,7 +31,7 @@ export default function SetAmountButtons({ children }) {
         <Container className = "align-items-center">
             <Container className = "d-flex gap-2 align-items-center">
                 <IconMinusCircle onClick = {() => removeProd()} />
-                {product && <p className= "fs-4">{product.amount}</p>}
+                {product && <p className= "fs-1 my-auto">{product.amount}</p>}
                 <IconPlusCircle onClick = {() => addProd()}/>
             </Container>
         </Container>

@@ -1,5 +1,5 @@
-import Header from "../header/header";
-import ProductCards from "../productCard/productCard";
+import Header from "./header/header";
+import ProductCards from "./productCard/productCard";
 import {Container} from "react-bootstrap";
 
 export default function Wrapper() {

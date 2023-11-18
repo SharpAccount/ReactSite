@@ -22,7 +22,7 @@ const Cart = () => {
                     <Card>
                         <Card.Header className = "prodHeader d-flex">
                             <Container className = "prodImgFrame">
-                                <Card.Img className = "prodImg" src = {prod.img} alt = ""/>
+                                <Card.Img className = "prodImg h-100 w-100" src = {prod.img} alt = ""/>
                             </Container>
                             <Container>
                                 <Card.Title className = "prodTitle">{prod.title}</Card.Title>
