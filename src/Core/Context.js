@@ -1,6 +1,5 @@
 import {createContext, useState} from "react";
 import axios from "axios";
-import AddToCartButton from "../ui/kits/addToCartButton";
 
 export const Context = createContext({});
 
@@ -43,7 +42,6 @@ export const ContextWrapper = ({ children }) => {
     const values = {
         getProd,
         productCards,
-        AddToCartButton,
         cart,
         setCart,
         addProduct
