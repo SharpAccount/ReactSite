@@ -1,12 +1,9 @@
-import {Container, Navbar} from "react-bootstrap";
+import {Container, Navbar, NavbarBrand} from "react-bootstrap";
 import "./header.css";
 import HOCHeader from "../HOCHeader";
-import {useContext} from "react";
-import {Context} from "../../../Core/Context";
 import {Link} from "react-router-dom";
 
 export function Header() {
-    const {CartButton} = useContext(Context);
 
     return (
         <>
@@ -16,7 +13,7 @@ export function Header() {
                         <Navbar.Brand className="fs-2">Fake Store</Navbar.Brand>
                     </Link>
                     <Link to ="/Products" className = "text-decoration-none">
-                        <CartButton />
+                        <NavbarBrand className="fs-2" size="lg">Cart</NavbarBrand>
                     </Link>
                 </Container>
             </Navbar>

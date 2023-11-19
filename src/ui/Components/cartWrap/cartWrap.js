@@ -1,6 +1,6 @@
 import {Container} from "react-bootstrap";
-import Cart from "../cart/cart";
 import "./cartWrap.css"
+import Cart from "../cart/cart";
 import BuyButton from "../buyButton";
 
 export default function CartWrap() {

@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import "bootstrap/dist/css/bootstrap.css";
 import './styles/index.css';
 import './styles/fonts.css';
 import './styles/colors.css';
 import App from './ui/App/App.js';
 import reportWebVitals from './reportWebVitals';
-import "bootstrap/dist/css/bootstrap.css";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

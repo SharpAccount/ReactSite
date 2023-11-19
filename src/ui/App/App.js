@@ -1,8 +1,9 @@
-import './App.css';
 import {URLs} from "../../constants/paths";
 import { ContextWrapper } from "../../Core/Context";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import LayOut from "../Components/layOut";
+import './App.css';
+
 function App() {
   return (
       <ContextWrapper>

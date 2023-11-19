@@ -1,8 +1,8 @@
 import {useContext} from "react";
+import "./cart.css";
 import {Context} from "../../../Core/Context";
 import {Card, Container} from "react-bootstrap";
 import SetAmountButtons from "../../kits/changeAmountButton";
-import "./cart.css";
 
 const Cart = () => {
     const {cart} = useContext(Context);

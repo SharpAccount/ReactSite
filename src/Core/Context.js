@@ -1,7 +1,6 @@
 import {createContext, useState} from "react";
 import axios from "axios";
-import BuyButton from "../ui/kits/buyButton";
-import {NavbarBrand} from "react-bootstrap";
+import AddToCartButton from "../ui/kits/addToCartButton";
 
 export const Context = createContext({});
 
@@ -40,18 +39,6 @@ export const ContextWrapper = ({ children }) => {
         return renderCart.products
     }
 
-    const AddToCartButton = ({ id }) => {
-        return (
-                <BuyButton onClick={() => addProduct(id)}/>
-        )
-    }
-
-
-    function CartButton(){
-        return (
-            <NavbarBrand className="fs-2" size="lg">Cart</NavbarBrand>
-        )
-    }
 
     const values = {
         getProd,
@@ -59,7 +46,7 @@ export const ContextWrapper = ({ children }) => {
         AddToCartButton,
         cart,
         setCart,
-        CartButton
+        addProduct
     }
 
     return (

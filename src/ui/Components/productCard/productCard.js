@@ -1,7 +1,7 @@
 import {useContext, useEffect} from "react";
+import "./productCard.css";
 import {Context} from "../../../Core/Context";
 import {Card, Container} from "react-bootstrap";
-import "./productCard.css";
 
 export default function ProductCards() {
     const {productCards, getProd, AddToCartButton} = useContext(Context);
