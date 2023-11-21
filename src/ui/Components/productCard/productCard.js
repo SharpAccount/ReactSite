@@ -1,21 +1,22 @@
 import {useContext, useEffect} from "react";
+import "./productCard.css";
 import {Context} from "../../../Core/Context";
 import {Card, Container} from "react-bootstrap";
-import "./productCard.css";
+import AddToCartButton from "../../kits/addToCartButton";
 
 export default function ProductCards() {
-    const {productCards, getProd, AddToCartButton} = useContext(Context);
+    const {productCards, getProd} = useContext(Context);
 
     useEffect( () => {
         getProd();
     }, [])
 
     return (
-        <Container className="prodCards d-grid rounded-1 overflow-y-auto p-2 mt-5 gap-2 flex-grow-1">
-            {productCards.map((prod) => (
-                <Card className="card">
+        <Container className="prodCards d-grid rounded-1 overflow-y-auto pt-2 pb-5 my-5 gap-2 flex-grow-1">
+            {productCards.map((prod, idx) => (
+                <Card className="card" key = {idx}>
                     <Card.Header>
-                        <Card.Img variant="top" className = "" src={prod.image}/>
+                        <Card.Img variant="top" className = "" src={prod.image}  alt =""/>
                     </Card.Header>
                     <Card.Body>
                         <Card.Title className="abbreviated overflow-hidden">
@@ -31,7 +32,7 @@ export default function ProductCards() {
                         <AddToCartButton id = {prod.id-1}/>
                     </Card.Body>
                 </Card>
-                ))
+            ))
             }
         </Container>
     );

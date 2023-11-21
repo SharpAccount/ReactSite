@@ -20,6 +20,7 @@ h5 {
 .abbreviated {
     -webkit-box-orient: vertical;
     display: -webkit-box;
+    height: 48px;
 }
 
 @media screen and (max-width: 1200px) {

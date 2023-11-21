@@ -1,33 +1,35 @@
 import {Button, Container, Navbar, Offcanvas} from "react-bootstrap";
-import "./header.css";
 import HOCHeader from "../HOCs/HOCHeader";
-import {useContext, useState} from "react";
-import {Context} from "../../../Core/Context";
+import ProdsInCart from "../prdosinCart/prodsinCart"
+import {useState} from "react";
+import "./header.css";
+import BuyButton from "../../buyButton";
+
 
 export function Header() {
-    const {AddedToCart, cartButton} = useContext(Context);
-
     const [show, setShow] = useState(false);
 
     const handleShow = () => setShow(true);
     const handleClose = () =>  setShow(false);
+
     return (
         <>
             <Navbar className="w-100" bg="light">
                 <Container>
-                    <Navbar.Brand className="fs-2">PRODUCTS</Navbar.Brand>
+                    <Navbar.Brand className="fs-2">Fake shop</Navbar.Brand>
                     <Button size="lg" onClick={handleShow}>Cart</Button>
                 </Container>
             </Navbar>
 
             <Offcanvas show = {show} onHide={handleClose} backdrop='true'>
                 <Offcanvas.Header closeButton>
-                    <Offcanvas.Title>Cart</Offcanvas.Title>
+                    <BuyButton />
                 </Offcanvas.Header>
                 <Offcanvas.Body className = "overflow-y-auto gap-2">
-                    {/*<AddedToCart/>*/}
+                    <ProdsInCart />
                 </Offcanvas.Body>
             </Offcanvas>
+
         </>
     );
 }

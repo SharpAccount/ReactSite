@@ -6,12 +6,17 @@ import './styles/colors.css';
 import App from './ui/App/App.js';
 import reportWebVitals from './reportWebVitals';
 import "bootstrap/dist/css/bootstrap.css";
+import {BrowserRouter, Switch} from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <BrowserRouter>
+        <Switch>
+          <React.StrictMode>
+            <App />
+          </React.StrictMode>
+        </Switch>
+    </BrowserRouter>
 );
 
 
